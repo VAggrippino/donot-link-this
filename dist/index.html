@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Don't Link This! - Prevent automatic linking of strings</title>
+</head>
+<body>
+  <header>
+    <h1>Don't Link This!</h1>
+    <p class="header__subtitle">Prevent automatic linking of strings</p>
+  </header>
+  <main>
+    <h2>The Problem</h2>
+    <p>
+      Community services like Facebook and Twitter take plain text as input
+      and turn them into links to relevant content based on commonly used
+      patterns. Three words separated only by dots is treated as a link to a
+      website. An "<a href="https://en.wikipedia.org/wiki/At_sign"
+      target="_blank">at sign</a>" followed by a word is treated as a link to
+      a user name or pseudonym. And a "<a
+      href="https://en.wikipedia.org/wiki/Number_sign" target="_blank">number
+      sign</a>" (#) is treated as a link to a concept stream, also known as a
+      hashtag.
+    </p>
+    <p>
+      Sometimes, the automatic linking performed by these services is not
+      intended by the author of the content.
+    </p>
+    <h2>The Solution</h2>
+    <p>
+      This tool is an attempt to
+      correct the problem by inserting a <a
+      href="https://en.wikipedia.org/wiki/Zero-width_space"
+      target="_blank">zero-width space</a> after certain characters. This
+      character, which is not visible, disrupts the pattern without changing
+      the appearance of the text.
+    </p>
+
+    <h2>Demo:</h2>
+    <div class="example">
+      <form action="#" method="post" onsubmit="return false;">
+        <textarea class="example__input">After I start building my subdomains out like http://code.example.com?opt1=yes&opt2=no, I'm going to code.example.com pre-order my lunch @McDowells by calling #hashtag #4005.</textarea>
+        <div class="example__output"></div>
+        <textarea class="example__corrected"></textarea>
+      </form>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="main.js"></script>
+</body>
+</html>
