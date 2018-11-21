@@ -1,0 +1,70 @@
+.header, .main, .footer {
+  background-color: white;
+  max-width: 50rem;
+  margin: auto;
+}
+
+.demo {
+  display: grid;
+  grid-template: none / 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: bisque;
+}
+
+.demo__title {
+  grid-row: 1 / 2;
+  grid-column: span 2;
+}
+
+.input .label, .output .label {
+  font-weight: bold;
+  margin: 0.25em;
+}
+
+.input {
+  grid-row: 2 / 2;
+  grid-column: 1 / 2;
+}
+
+.input__field, .output__field {
+  font-family: serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.25em;
+  min-height: 5em;
+}
+
+.output__field {
+  background-color: white;
+  border-radius: 0.25em;
+  transition: background-color 250ms;
+}
+
+.output__field.updated {
+  background-color: yellow;
+}
+
+.buttons {
+  grid-column: 2/3;
+  text-align: right;
+}
+
+.buttons__fix {
+  background-color: dodgerblue;
+  color: white;
+  font-size: 1rem;
+  padding: 0.25em 0.75em;
+  border-radius: 0.5em;
+  border-style: none;
+  font-variant: small-caps;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px black;
+
+  &:focus { outline: none; }
+  &:active{
+    box-shadow: 0 0 0 black;
+  }
+}

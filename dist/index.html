@@ -7,11 +7,29 @@
   <title>Don't Link This! - Prevent automatic linking of strings</title>
 </head>
 <body>
-  <header>
-    <h1>Don't Link This!</h1>
-    <p class="header__subtitle">Prevent automatic linking of strings</p>
+  <header class="header">
+    <h1 class="header__title">Don't Link This!</h1>
+    <p class="header__slogan">Prevent automatic linking of strings</p>
   </header>
-  <main>
+  <main class="main">
+    <div class="demo">
+      <h2 class="demo__title">Demo:</h2>
+
+      <div class="input">
+        <div class="label">Input:</div>
+        <textarea class="input__field" id="demo_input">URLs like http://vaggrippino.github.io/donot-link-this, and vaggrippino.github.io/donot-link-this are automatically linked. So are #hashtags and @mentions.</textarea>
+      </div>
+
+      <div class="output">
+        <div class="label">Output:</div>
+        <div class="output__field" id="demo_output"></div>
+      </div>
+
+      <div class="buttons">
+        <input class="buttons__fix" id="fix_button" type="button" value="Fix It">
+      </div>
+    </div>
+
     <h2>The Problem</h2>
     <p>
       Community services like Facebook and Twitter take plain text as input
@@ -37,19 +55,8 @@
       character, which is not visible, disrupts the pattern without changing
       the appearance of the text.
     </p>
-
-    <h2>Demo:</h2>
-    <div class="example">
-      <form action="#" method="post" onsubmit="return false;">
-        <textarea class="example__input">After I start building my subdomains out like http://code.example.com?opt1=yes&opt2=no, I'm going to code.example.com pre-order my lunch @McDowells by calling #hashtag #4005.</textarea>
-        <div class="example__output"></div>
-        <div class="example__buttons">
-          <input class="example__fix" type="button" value="Fix It">
-        </div>
-      </form>
-    </div>
   </main>
-  <footer></footer>
+  <footer class="footer"></footer>
   <script src="main.js"></script>
 </body>
 </html>
