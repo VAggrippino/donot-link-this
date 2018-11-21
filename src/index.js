@@ -3,6 +3,10 @@ import linkifyHtml from 'linkifyjs/html';
 import hashtag from 'linkifyjs/plugins/hashtag';
 import mention from 'linkifyjs/plugins/mention';
 import ticket from 'linkifyjs/plugins/ticket';
+import throttle from 'lodash.throttle';
+// const throttle = require('lodash.throttle');
+
+require('./scss/main.scss');
 
 hashtag(linkify);
 mention(linkify);
@@ -18,33 +22,37 @@ const linkifyOptions = {
   },
 };
 
-const exampleInput = document.getElementsByClassName('example__input')[0];
-const exampleOutput = document.getElementsByClassName('example__output')[0];
+function updateOutput(e) {
+  const demoInput = document.getElementById('demo_input');
+  const demoOutput = document.getElementById('demo_output');
+  demoOutput.innerHTML = linkifyHtml(demoInput.value, linkifyOptions);
+  demoOutput.classList.add('updated');
+}
 
-exampleOutput.innerHTML = linkifyHtml(exampleInput.value, linkifyOptions);
+function removeUpdateAnimation(e) {
+  const demoOutput = document.getElementById('demo_output');
+  demoOutput.classList.remove('updated');
+}
 
-exampleInput.addEventListener('change', (e) => {
-  exampleOutput.innerHTML = linkifyHtml(exampleInput.value, linkifyOptions);
-});
+const demoInput = document.getElementById('demo_input');
+const demoOutput = document.getElementById('demo_output');
 
-exampleInput.addEventListener('keyup', (e) => {
-  exampleOutput.innerHTML = linkifyHtml(exampleInput.value, linkifyOptions);
-});
+const throttleUpdateOutput = throttle(updateOutput, 500);
+demoInput.addEventListener('change', throttleUpdateOutput);
+demoInput.addEventListener('keyup', throttleUpdateOutput);
+demoInput.addEventListener('mousedown', throttleUpdateOutput);
+demoInput.addEventListener('mouseup', throttleUpdateOutput);
 
-exampleInput.addEventListener('mousedown', (e) => {
-  exampleOutput.innerHTML = linkifyHtml(exampleInput.value, linkifyOptions);
-});
+demoOutput.addEventListener('transitionend', removeUpdateAnimation);
 
-exampleInput.addEventListener('mouseup', (e) => {
-  exampleOutput.innerHTML = linkifyHtml(exampleInput.value, linkifyOptions);
-});
-
-const fixButton = document.getElementsByClassName('example__fix')[0];
+const fixButton = document.getElementById('fix_button');
 fixButton.addEventListener('click', (e) => {
-  console.log('fix');
-  let msg = exampleInput.value;
+  let msg = demoInput.value;
   msg = msg.replace(/([@#\.])/g, '$1\u200B');
   msg = msg.replace(/(https?)(:\/\/)/g, '$1$2\u200B');
-  exampleInput.value = msg;
-  exampleOutput.innerHTML = linkifyHtml(exampleInput.value, linkifyOptions);
+  demoInput.value = msg;
+  demoOutput.innerHTML = linkifyHtml(demoInput.value, linkifyOptions);
+  demoOutput.classList.add('updated');
 });
+
+window.addEventListener('load', updateOutput);
