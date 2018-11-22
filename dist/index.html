@@ -55,6 +55,34 @@
       character, which is not visible, disrupts the pattern without changing
       the appearance of the text.
     </p>
+    <h2>What services does this work with?</h2>
+    <p>
+      Since inserting a non-displayed character invalidates the URL, this
+      should work with any service that automatically transform a text string
+      containing a URL into a clickable link. However, some services simply
+      strip out the non-displayed characters. I've tested this with a few
+      services, and here's the result:
+    </p>
+    <table>
+      <tr>
+        <th>Service</th> <th>Works?</th>
+      </tr>
+      <tr>
+        <td>Facebook</td> <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td>Twitter</td> <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td>WhatsApp</td> <td class="no">no</td>
+      </tr>
+      <tr>
+        <td>Telegram</td> <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td>GitHub</td> <td class="yes">Yes</td>
+      </tr>
+    </table>
   </main>
   <footer class="footer"></footer>
   <script src="main.js"></script>
