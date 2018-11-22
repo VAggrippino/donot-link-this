@@ -94,3 +94,54 @@
     grid-column: 2/3;
   }
 }
+
+table.test-results {
+  border: 1px solid black;
+  width: 15em;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  margin: auto;
+
+  td, th {
+    border: 1px solid black;
+    padding: 0.25em;
+  }
+
+  td.yes, td.no {
+    color: white;
+    font-variant: small-caps;
+    text-align: center;
+  }
+
+  td.yes {
+    background-color: green;
+  }
+
+  td.no {
+    background-color: red;
+  }
+}
+
+@media (min-width: 30rem) {
+  .information__block.compatibility {
+    display: grid;
+    grid-template: auto auto / auto auto;
+    grid-gap: 1rem;
+
+    h2 {
+      grid-row: 1/2;
+      grid-column: span 2;
+    }
+
+    p {
+      margin-top: 0;
+      grid-row: 2/3;
+      grid-column: 1/2;
+    }
+
+    table.test-results {
+      grid-row: 2/3;
+      grid-column: 2/3;
+    }
+  }
+}
