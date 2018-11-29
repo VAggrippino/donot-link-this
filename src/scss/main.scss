@@ -39,7 +39,11 @@
   box-sizing: border-box;
   width: 100%;
   padding: 0.25em;
-  min-height: 5em;
+  line-height: 1.2;
+}
+
+.input__field:focus {
+  outline: none;
 }
 
 .output__field {

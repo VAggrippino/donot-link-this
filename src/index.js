@@ -4,6 +4,7 @@ import hashtag from 'linkifyjs/plugins/hashtag';
 import mention from 'linkifyjs/plugins/mention';
 import ticket from 'linkifyjs/plugins/ticket';
 import debounce from 'lodash.debounce';
+import {autoExpand} from './js/autoExpand.js';
 
 require('./scss/main.scss');
 
@@ -49,4 +50,8 @@ fixButton.addEventListener('click', (e) => {
   demoOutput.classList.add('updated');
 });
 
-window.addEventListener('load', updateOutput);
+window.addEventListener('load', () => {
+  const demoInput = document.getElementById('demo_input');
+  autoExpand(demoInput);
+  updateOutput();
+});
