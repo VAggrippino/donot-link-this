@@ -25,7 +25,8 @@ const linkifyOptions = {
 function updateOutput(e) {
   const demoInput = document.getElementById('demo_input');
   const demoOutput = document.getElementById('demo_output');
-  demoOutput.innerHTML = linkifyHtml(demoInput.value, linkifyOptions);
+  const inputValue = demoInput.value.replace(/\r?\n/g, '<br>');
+  demoOutput.innerHTML = linkifyHtml(inputValue, linkifyOptions);
   demoOutput.classList.add('updated');
 }
 
