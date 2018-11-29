@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "linkifyjs": "^2.1.7",
-    "lodash.throttle": "^4.1.1"
+    "lodash.debounce": "^4.0.8"
   }
 }

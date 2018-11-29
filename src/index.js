@@ -3,8 +3,7 @@ import linkifyHtml from 'linkifyjs/html';
 import hashtag from 'linkifyjs/plugins/hashtag';
 import mention from 'linkifyjs/plugins/mention';
 import ticket from 'linkifyjs/plugins/ticket';
-import throttle from 'lodash.throttle';
-// const throttle = require('lodash.throttle');
+import debounce from 'lodash.debounce';
 
 require('./scss/main.scss');
 
@@ -37,12 +36,7 @@ function removeUpdateAnimation(e) {
 const demoInput = document.getElementById('demo_input');
 const demoOutput = document.getElementById('demo_output');
 
-const throttleUpdateOutput = throttle(updateOutput, 500);
-demoInput.addEventListener('change', throttleUpdateOutput);
-demoInput.addEventListener('keyup', throttleUpdateOutput);
-demoInput.addEventListener('mousedown', throttleUpdateOutput);
-demoInput.addEventListener('mouseup', throttleUpdateOutput);
-
+demoInput.addEventListener('input', debounce(updateOutput, 500));
 demoOutput.addEventListener('transitionend', removeUpdateAnimation);
 
 const fixButton = document.getElementById('fix_button');
