@@ -31,6 +31,13 @@
       </div>
     </div>
 
+    <div class="bookmarklet">
+      <h2 class="bookmarklet__title">Bookmarklet</h2>
+      <p>
+        <a href="javascript:(()=>{const a=window.getSelection();if('Range'===a.type){const b=a.toString().replace(/([@#\.])/g,'$1\u200B').replace(/(https?)(:\/\/)/g,'$1\u200B$2');let c=null;if(a.anchorNode===a.focusNode&&a.anchorOffset===a.focusOffset){c=a.anchorNode.childNodes[a.anchorOffset];const d=c.value,e=d.substring(0,c.selectionStart),f=d.substring(c.selectionEnd+1);c.value=e+b+f}else c=a.getRangeAt(0),c.deleteContents(),c.insertNode(document.createTextNode(b))}})();">Bookmarklet</a>
+      </p>
+    </div>
+
     <div class="information">
       <div class="information__block problem">
         <h2 class="heading">The Problem</h2>
