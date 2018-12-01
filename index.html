@@ -34,7 +34,11 @@
     <div class="bookmarklet">
       <h2 class="bookmarklet__title">Bookmarklet</h2>
       <p>
-        <a href="javascript:(()=>{const a=window.getSelection();if('Range'===a.type){const b=a.toString().replace(/([@#\.])/g,'$1\u200B').replace(/(https?)(:\/\/)/g,'$1\u200B$2');let c=null;if(a.anchorNode===a.focusNode&&a.anchorOffset===a.focusOffset){c=a.anchorNode.childNodes[a.anchorOffset];const d=c.value,e=d.substring(0,c.selectionStart),f=d.substring(c.selectionEnd+1);c.value=e+b+f}else c=a.getRangeAt(0),c.deleteContents(),c.insertNode(document.createTextNode(b))}})();">Bookmarklet</a>
+        Use the Don't Link This bookmarklet by dragging the following link to
+        your Bookmarks Toolbar. Then highlight something you don't want
+        linked and click the bookmark.
+        <br>
+        <a href="javascript:(()=>{const a=window.getSelection();if('Range'===a.type){const b=a.toString().replace(/([@#\.])/g,'$1\u200B').replace(/(https?)(:\/\/)/g,'$1\u200B$2'),c=document.createElement('div'),d=document.createElement('textarea'),f=document.createElement('button'),g=document.createElement('button');c.style.position='absolute',c.style.top='50%',c.style.left='50%',c.style.transform='translate(-50%,-50%)',c.style.zIndex='9001',c.style.padding='1em',c.style.backgroundColor='bisque',c.style.borderRadius='0.5em',c.style.boxShadow='2px 2px 10px rgba(0,0,0,0.3)',d.setAttribute('rows','4'),d.style.width='33vw',d.value=b,f.appendChild(document.createTextNode('Copy')),f.addEventListener('click',h=>{h.target.parentNode.getElementsByTagName('textarea')[0].select(),document.execCommand('copy')}),g.appendChild(document.createTextNode('Close')),g.addEventListener('click',()=>{document.body.removeChild(c)}),c.appendChild(d),c.appendChild(document.createElement('br')),c.appendChild(f),c.appendChild(g),document.body.appendChild(c)}})();">Don't Link This!</a>
       </p>
     </div>
 
