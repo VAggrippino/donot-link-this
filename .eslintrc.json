@@ -5,6 +5,7 @@
     },
     "extends": "google",
     "rules": {
-        "require-jsdoc": "off"
+        "require-jsdoc": "off",
+        "quotes": ["error", "single", { "avoidEscape": true }]
     }
 }
